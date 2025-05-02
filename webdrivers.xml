@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<root>
+    <windows>
+        <driver id="googlechrome">
+            <!-- For Chrome version 130.0.6723.58 -->
+            <version id="130.0.6723.58">
+                <!-- 32-bit version -->
+                <bitrate thirtytwobit="true" sixtyfourbit="false">
+                    <filelocation>https://storage.googleapis.com/chrome-for-testing-public/130.0.6723.58/win32/chromedriver-win32.zip</filelocation>
+                    <hash>0cf12d25140e329bcb4c304feefce63f8f0ba7b3</hash>
+                    <hashtype>sha256</hashtype>
+                </bitrate>
+               
+            </version>
+        </driver>
+    </windows>
+
+    <!-- Empty elements for Linux and macOS to satisfy the plugin's schema requirements -->
+    <linux/>
+    <osx/>
+</root>
