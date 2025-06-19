@@ -48,7 +48,9 @@ public class NewIllustrationView extends TestBenchElement {
 		return $(TestBenchElement.class).id( "NewIllustrationSection" ).$(DatePickerElement.class).id("EffectiveDate");
 	}
 
-
+   protected SelectElement inputFace(){
+		return $(TestBenchElement.class).id("NewIllustrationSection").$(SelectElement.class).id("NewBusinessPremiumFaceInputRule");
+   }
 
 
 

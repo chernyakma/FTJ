@@ -29,6 +29,11 @@ public class ApplicationView extends TestBenchElement {
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "Application" ).$( DatePickerElement.class ).id( "ApplicationReceivedDate" );
 
 	}
+	protected SelectElement applicationStatus() {
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "Application" ).$( SelectElement.class ).id( "ApplicationStatus" );
+
+	}
 	protected SelectElement paymentMethod() {
 
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "Policy" ).$( SelectElement.class ).id( "PaymentMethod" );
@@ -64,6 +69,15 @@ public class ApplicationView extends TestBenchElement {
 	protected DatePickerElement cashWithApplicationReceivedDate() {
 
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "InitialPayment" ).$( DatePickerElement.class ).id( "CashWithApplicationReceivedDate" );
+
+	}
+	protected TextFieldElement cashAmount() {
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "InitialPayment" ).$( TextFieldElement.class ).id( "CashWithApplication" );
+	}
+	protected DatePickerElement policyIssuedDate() {
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "Policy" ).$( DatePickerElement.class ).id( "IssueDate" );
 
 	}
 

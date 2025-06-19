@@ -36,12 +36,12 @@ public class NaviMenuView extends TestBenchElement {
 	}
 	protected TestBenchElement otherRoles() {
 
-		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(21);
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(24);
 	}
 
 	protected TestBenchElement getNewBusiness() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 27 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 33 );
 	}
 
 	protected TestBenchElement getBankInformation() {
@@ -56,17 +56,17 @@ public class NaviMenuView extends TestBenchElement {
 
 	protected TestBenchElement checkIGO() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 17 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 20 );
 	}
 	protected TestBenchElement payorAndOwner() {
 
-		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(13);
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(16);
 	}
 
 
 	protected TestBenchElement suspense() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 33 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 36 );
 	}
 
 	protected TestBenchElement transactionsWL() {
@@ -75,7 +75,7 @@ public class NaviMenuView extends TestBenchElement {
 	}
 	protected TestBenchElement beneficiaries() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 18 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 21 );
 	}
 	protected TestBenchElement transactionsSPDA() {
 
@@ -83,7 +83,7 @@ public class NaviMenuView extends TestBenchElement {
 	}
 	protected TestBenchElement policyTransactions() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 30 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 14 );
 	}
 
 	protected TestBenchElement getReport() {

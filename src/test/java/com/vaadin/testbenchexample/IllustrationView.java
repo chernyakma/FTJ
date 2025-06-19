@@ -22,7 +22,7 @@ public class IllustrationView extends TestBenchElement {
 
 	protected ButtonElement getApplyButtonReport() {
 
-		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( ButtonElement.class ).get( 4 );
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( ButtonElement.class ).get( 3 );
 	}
 
 	protected ButtonElement getApplyButtonResult() {
