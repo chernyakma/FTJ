@@ -64,14 +64,14 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 
 	private void performLogin() {
 
-
+/*
 		getDriver().get("http://localhost:8080/ftj_webui/");
 			$( TextFieldElement.class).first().setValue( "jBond");
 		$( PasswordFieldElement.class).first().setValue( "JBond007");
 		$( ButtonElement.class).first().click();
 
-/*
-		getDriver().get("https://test.amplify.calcfocus.net/achieve/oauth2/login/code/cognito");
+		*/
+		getDriver().get("https://test.ftj.calcfocus.net/achieve/oauth2/login/cognito");
 
 		WebElement usernameFieldElement = findElement( By.id( "signInFormUsername" ));
 		usernameFieldElement.click();
@@ -84,7 +84,7 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 		TestBenchElement loginButton = ( TestBenchElement )findElement( By.name( "signInSubmitButton" ));
 		loginButton.click();
 
-*/
+
 	}
 
 

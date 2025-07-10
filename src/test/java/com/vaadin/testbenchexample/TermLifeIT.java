@@ -139,7 +139,7 @@ public class TermLifeIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
 		getSelectButton.getSelectItem().selectItemByIndex(3);
 		SearchComponentView getFamily = $(SearchComponentView.class).first();
-		getFamily.searchBySSN().sendKeys("511-20-7945");
+		getFamily.searchBySSN().sendKeys("511-20-7947");
 		getFamily.searchButton().click();
 		getFamily.family().getCell("Palmer").click();
 		NaviMenuView newBusiness = $(NaviMenuView.class).first();
@@ -235,7 +235,7 @@ public class TermLifeIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
 		getSelectButton.getSelectItem().selectItemByIndex(3);
 		SearchComponentView getFamily = $(SearchComponentView.class).first();
-		getFamily.searchBySSN().sendKeys("511-20-7945");
+		getFamily.searchBySSN().sendKeys("511-20-7947");
 		getFamily.searchButton().click();
 		getFamily.family().getCell("Palmer").click();
 		NaviMenuView newBusiness = $(NaviMenuView.class).first();
@@ -247,7 +247,8 @@ public class TermLifeIT extends BaseLoginTest {
 		addNewBusiness.inputFace().selectByText("Input Face");
 		addNewBusiness.getProduct().selectByText("NYL Decreasing Term");
 		addNewBusiness.getOkButton().click();
-
+        IllustrationView paymentMode = $(IllustrationView.class).first();
+		paymentMode.paymentMode().selectByText("Monthly");
 		NaviMenuView getReport = $(NaviMenuView.class).first();
 		getReport.getReport().click();
 		IllustrationView apply = $(IllustrationView.class).first();
@@ -258,8 +259,9 @@ public class TermLifeIT extends BaseLoginTest {
 		application.applicationReceived().selectByText( "Yes" );
 		application.cashWithApplication().selectByText( "Yes" );
 		application.paymentMethod().selectByText("Electronic Fund Transfer");
+		application.draftDay().sendKeys("1");
 		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
-		application.cashAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "360");
+		application.cashAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "29.9");
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
 		application.applicationReceivedDate().setDate( LocalDate.now() );
 		application.applicationSignedDate().setDate( LocalDate.now() );
@@ -348,9 +350,9 @@ public class TermLifeIT extends BaseLoginTest {
 		getSelectButton.getSelectItem().selectByText("Search Policy");
 
 		SearchComponentView getPolicy = $(SearchComponentView.class).first();
-		getPolicy.searchByPolicy().sendKeys("POL-1033");
+		getPolicy.searchByPolicy().sendKeys("POL-1053");
 		getPolicy.searchButton().click();
-		getPolicy.family().getCell("POL-1033").click();
+		getPolicy.family().getCell("POL-1053").click();
 
 		NaviMenuView transaction = $(NaviMenuView.class).first();
 		transaction.policyTransactions().click();

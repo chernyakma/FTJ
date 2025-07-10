@@ -39,6 +39,11 @@ public class ApplicationView extends TestBenchElement {
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "Policy" ).$( SelectElement.class ).id( "PaymentMethod" );
 
 	}
+	protected TextFieldElement draftDay() {
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "Policy" ).$( TextFieldElement.class ).id( "DraftDay" );
+
+	}
 
 	protected DatePickerElement applicationSignedDate() {
 
