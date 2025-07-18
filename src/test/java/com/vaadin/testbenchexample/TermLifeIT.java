@@ -24,7 +24,7 @@ public class TermLifeIT extends BaseLoginTest {
 			getPolicy.searchButton().click();
 			getPolicy.family().getCell( "POL-1013" ).click();
 			NaviMenuView addSuspense = $( NaviMenuView.class ).first();
-			addSuspense.suspense().click();
+			addSuspense.suspense2().click();
 			ScenarioView addSuspenseButton = $( ScenarioView.class ).first();
 			addSuspenseButton.addSuspenceButton().click();
 			EntryDialogContent suspenseSource = $( EntryDialogContent.class ).first();

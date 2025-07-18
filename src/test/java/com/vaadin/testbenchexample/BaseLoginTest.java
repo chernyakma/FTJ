@@ -46,7 +46,7 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 	options.setExperimentalOption("prefs", prefs);
 
 
-//	 options.addArguments("--headless", "--disable-gpu");
+	 options.addArguments("--headless", "--disable-gpu");
 
 		setDriver(new ChromeDriver(options));
 
