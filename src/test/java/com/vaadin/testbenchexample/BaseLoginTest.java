@@ -24,8 +24,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public abstract class BaseLoginTest extends TestBenchTestCase {
 
-/*
 
+/*
 		@After
 	public void tearDown() throws Exception {
 			getDriver().quit();

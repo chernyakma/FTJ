@@ -120,7 +120,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		Assertions.assertEquals( "051000017",bankAccount.getRoutingNumber().getValue() );
 		Assertions.assertEquals( "Virginia",bankAccount.getBankState().getSelectedText() );
 		Assertions.assertEquals( "Checking",bankAccount.getAccountType().getSelectedText() );
-		Assertions.assertEquals( "****566789",bankAccount.getAccountNumberUnmasked().getValue() );
+		Assertions.assertEquals( "******6789",bankAccount.getAccountNumberUnmasked().getValue() );
 		bankAccount.okButton().click();
 		AddFamilyView saveButton = $ (AddFamilyView.class).first();
 		saveButton.getSaveButton().click();

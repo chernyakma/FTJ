@@ -147,7 +147,8 @@ public class TermLifeIT extends BaseLoginTest {
 		NewIllustrationView addNewBusiness = $(NewIllustrationView.class).first();
 //		addNewBusiness.getProductType().selectByText( "Immediate Annuity" );
 		addNewBusiness.getFaceAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "100000");
-		addNewBusiness.effectiveDate().setDate(LocalDate.now());
+//		addNewBusiness.effectiveDate().setDate(LocalDate.now());
+		addNewBusiness.effectiveDate().setDate(LocalDate.of( 2025, 8, 01 ) );
 		addNewBusiness.inputFace().selectByText("Input Face");
 		addNewBusiness.getOkButton().click();
 
@@ -243,9 +244,10 @@ public class TermLifeIT extends BaseLoginTest {
 		NewIllustrationView addNewBusiness = $(NewIllustrationView.class).first();
 //		addNewBusiness.getProductType().selectByText( "Immediate Annuity" );
 		addNewBusiness.getFaceAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "150000");
-		addNewBusiness.effectiveDate().setDate(LocalDate.now());
+//		addNewBusiness.effectiveDate().setDate(LocalDate.now());
+		addNewBusiness.effectiveDate().setDate(LocalDate.of( 2025, 8, 01 ) );
 		addNewBusiness.inputFace().selectByText("Input Face");
-		addNewBusiness.getProduct().selectByText("NYL Decreasing Term");
+		addNewBusiness.getProduct().selectByText("NYL 10 Year Term");
 		addNewBusiness.getOkButton().click();
         IllustrationView paymentMode = $(IllustrationView.class).first();
 		paymentMode.paymentMode().selectByText("Monthly");
@@ -261,7 +263,7 @@ public class TermLifeIT extends BaseLoginTest {
 		application.paymentMethod().selectByText("Electronic Fund Transfer");
 		application.draftDay().sendKeys("1");
 		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
-		application.cashAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "29.9");
+		application.cashAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "87.5");
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
 		application.applicationReceivedDate().setDate( LocalDate.now() );
 		application.applicationSignedDate().setDate( LocalDate.now() );
