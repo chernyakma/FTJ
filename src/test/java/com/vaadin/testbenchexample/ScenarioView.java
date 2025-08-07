@@ -79,7 +79,7 @@ public class ScenarioView extends TestBenchElement {
 	}
 	protected ButtonElement getDeleteAddressButton() {
 
-		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("S1").$(TestBenchElement.class).id("FamilyAddressTable").$(ButtonElement.class).get(3);
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("S1").$(TestBenchElement.class).id("FamilyAddressTable").$(ButtonElement.class).get(4);
 	}
 	protected ButtonElement getDeleteFamilyOwner() {
 
@@ -122,7 +122,7 @@ public class ScenarioView extends TestBenchElement {
 	}
 	protected WebElement policyPaidToDate() {
 
-		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "titleLayout").$( TestBenchElement.class).id( "summaryTable").$( TestBenchElement.class).id( "componentContent" ).findElements( By.className( "summary-column-value" )).get( 8 );
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "titleLayout").$( TestBenchElement.class).id( "summaryTable").$( TestBenchElement.class).id( "componentContent" ).findElements( By.className( "summary-column-value" )).get( 7 );
 	}
 
 	// Transactions
@@ -155,7 +155,7 @@ public class ScenarioView extends TestBenchElement {
 	}
 	protected WebElement policyStatus() {
 
-		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("titleLayout").$(TestBenchElement.class).id("summaryTable").$(TestBenchElement.class).id("componentContent").findElements(By.className("summary-column-value")).get(4);
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("titleLayout").$(TestBenchElement.class).id("summaryTable").$(TestBenchElement.class).id("componentContent").findElements(By.className("summary-column-value")).get(3);
 	}
 	protected ButtonElement viewLoanTransactionButton(){
 
@@ -192,7 +192,7 @@ public class ScenarioView extends TestBenchElement {
 	}
 	protected TestBenchElement suspenceBalance(){
 
-		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "suspense-page").first().$(TestBenchElement.class).id( "topContent").$("VAADIN-GRID-CELL-CONTENT").get( 13 );
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "suspense-page").first().$(TestBenchElement.class).id( "topContent").$("VAADIN-GRID-CELL-CONTENT").get( 11 );
 	}
 
 	// family

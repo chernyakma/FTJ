@@ -20,9 +20,9 @@ public class TermLifeIT extends BaseLoginTest {
 			VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 			getSelectButton.getSelectItem().selectItemByIndex( 6 );
 			SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-			getPolicy.searchByPolicy().sendKeys( "POL-1013" );
+			getPolicy.searchByPolicy().sendKeys( "14000003" );
 			getPolicy.searchButton().click();
-			getPolicy.family().getCell( "POL-1013" ).click();
+			getPolicy.family().getCell( "14000003" ).click();
 			NaviMenuView addSuspense = $( NaviMenuView.class ).first();
 			addSuspense.suspense2().click();
 			ScenarioView addSuspenseButton = $( ScenarioView.class ).first();
@@ -139,7 +139,7 @@ public class TermLifeIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
 		getSelectButton.getSelectItem().selectItemByIndex(3);
 		SearchComponentView getFamily = $(SearchComponentView.class).first();
-		getFamily.searchBySSN().sendKeys("511-20-7947");
+		getFamily.searchBySSN().sendKeys("511-20-7948");
 		getFamily.searchButton().click();
 		getFamily.family().getCell("Palmer").click();
 		NaviMenuView newBusiness = $(NaviMenuView.class).first();
@@ -148,7 +148,7 @@ public class TermLifeIT extends BaseLoginTest {
 //		addNewBusiness.getProductType().selectByText( "Immediate Annuity" );
 		addNewBusiness.getFaceAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "100000");
 //		addNewBusiness.effectiveDate().setDate(LocalDate.now());
-		addNewBusiness.effectiveDate().setDate(LocalDate.of( 2025, 8, 01 ) );
+		addNewBusiness.effectiveDate().setDate(LocalDate.now());
 		addNewBusiness.inputFace().selectByText("Input Face");
 		addNewBusiness.getOkButton().click();
 
@@ -236,7 +236,7 @@ public class TermLifeIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
 		getSelectButton.getSelectItem().selectItemByIndex(3);
 		SearchComponentView getFamily = $(SearchComponentView.class).first();
-		getFamily.searchBySSN().sendKeys("511-20-7947");
+		getFamily.searchBySSN().sendKeys("511-20-7948");
 		getFamily.searchButton().click();
 		getFamily.family().getCell("Palmer").click();
 		NaviMenuView newBusiness = $(NaviMenuView.class).first();
@@ -244,8 +244,8 @@ public class TermLifeIT extends BaseLoginTest {
 		NewIllustrationView addNewBusiness = $(NewIllustrationView.class).first();
 //		addNewBusiness.getProductType().selectByText( "Immediate Annuity" );
 		addNewBusiness.getFaceAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "150000");
-//		addNewBusiness.effectiveDate().setDate(LocalDate.now());
-		addNewBusiness.effectiveDate().setDate(LocalDate.of( 2025, 8, 01 ) );
+		addNewBusiness.effectiveDate().setDate(LocalDate.now());
+//		addNewBusiness.effectiveDate().setDate(LocalDate.of( 2025, 8, 01 ) );
 		addNewBusiness.inputFace().selectByText("Input Face");
 		addNewBusiness.getProduct().selectByText("NYL 10 Year Term");
 		addNewBusiness.getOkButton().click();
@@ -352,9 +352,9 @@ public class TermLifeIT extends BaseLoginTest {
 		getSelectButton.getSelectItem().selectByText("Search Policy");
 
 		SearchComponentView getPolicy = $(SearchComponentView.class).first();
-		getPolicy.searchByPolicy().sendKeys("POL-1053");
+		getPolicy.searchByPolicy().sendKeys("POL-1002");
 		getPolicy.searchButton().click();
-		getPolicy.family().getCell("POL-1053").click();
+		getPolicy.family().getCell("POL-1002").click();
 
 		NaviMenuView transaction = $(NaviMenuView.class).first();
 		transaction.policyTransactions().click();
