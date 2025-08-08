@@ -185,6 +185,16 @@ public class EntryDialogContent extends TestBenchElement {
 		return $(TestBenchElement.class).id("FldSec_1" ).$(SelectElement.class).id("RelationToPrimaryInsured");
 	}
 
+	//transactions
+	protected TextFieldElement premiumAmount (){
+
+		return $(TestBenchElement.class).id( "PremiumSection" ).$(TextFieldElement.class).id( "AmountRequested" );
+	}
+	protected TextFieldElement billingMonths (){
+
+		return $(TestBenchElement.class).id( "PremiumSection" ).$(TextFieldElement.class).id( "BillingMonths" );
+	}
+
 	public void addBeneficiary (String firstName,String lastName,String ssn,String email,String phoneNumber){
 	firstName().sendKeys(firstName);
 	lastName().sendKeys(lastName);

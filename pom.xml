@@ -255,6 +255,7 @@
                         <include>**/TermLifeIT.java</include>
                         <include>**/BaseLoginTest.java</include>
                         <include>**/AddFamilyIT.java</include>
+                        <include>**/PolicyBillIT.java</include>
                     </includes>
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                     <redirectTestOutputToFile>true</redirectTestOutputToFile>
