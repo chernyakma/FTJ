@@ -19,9 +19,9 @@ public class PolicyBillIT extends BaseLoginTest{
         VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
         getSelectButton.getSelectItem().selectItemByIndex( 6 );
         SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-        getPolicy.searchByPolicy().sendKeys( "14000003" );
+        getPolicy.searchByPolicy().sendKeys( "POL-1026" );
         getPolicy.searchButton().click();
-        getPolicy.family().getCell( "14000003" ).click();
+        getPolicy.family().getCell( "POL-1026" ).click();
         NaviMenuView addSuspense = $( NaviMenuView.class ).first();
         addSuspense.suspense2().click();
         ScenarioView addSuspenseButton = $( ScenarioView.class ).first();
