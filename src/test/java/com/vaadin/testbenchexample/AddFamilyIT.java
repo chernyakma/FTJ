@@ -88,6 +88,8 @@ public class AddFamilyIT extends BaseLoginTest {
 		Assertions.assertEquals( "1/5/1965", family.getDateOfBirth().getInputValue() );
 		family.getSaveButton().click();
 		family.FamilyButton().click();
+		VaadinConfirmDialogView leave=$(VaadinConfirmDialogView.class).first();
+		leave.getDeleteButton().click();
 	//	NaviMenuView getFamilybutton = $( NaviMenuView.class ).first();
 	//	getFamilybutton.getFamily().click();
 		ScenarioView deleteMember= $(ScenarioView.class).first();
