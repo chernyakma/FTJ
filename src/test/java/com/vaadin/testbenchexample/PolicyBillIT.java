@@ -19,9 +19,9 @@ public class PolicyBillIT extends BaseLoginTest{
         VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
         getSelectButton.getSelectItem().selectItemByIndex( 6 );
         SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-        getPolicy.searchByPolicy().sendKeys( "POL-1035" );
+        getPolicy.searchByPolicy().sendKeys( "POL-1106" );
         getPolicy.searchButton().click();
-        getPolicy.family().getCell( "POL-1035" ).click();
+        getPolicy.family().getCell( "POL-1106" ).click();
         NaviMenuView addSuspense = $( NaviMenuView.class ).first();
         addSuspense.suspense2().click();
         ScenarioView addSuspenseButton = $( ScenarioView.class ).first();
@@ -98,7 +98,7 @@ public class PolicyBillIT extends BaseLoginTest{
         waitUntil(driver -> $(EntryDialogContent.class).exists(), 160);
         EntryDialogContent premium = $(EntryDialogContent.class).first();
 //        waitUntil(driver -> premium.isDisplayed(), 60);
-        premium.premiumAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "87.50");
+ //       premium.premiumAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "262.50");
 //        premium.billingMonths().sendKeys(Keys.chord(Keys.CONTROL, "a"), "3");
         premium.okButton().click();
         ScenarioView processPremiumTransaction = $(ScenarioView.class).first();
@@ -112,7 +112,7 @@ public class PolicyBillIT extends BaseLoginTest{
         String updatedText = transactionsPage.policyPaidToDate().getText();
         LocalDate updatedDate = LocalDate.parse(updatedText, formatter);
 
-        Assertions.assertEquals(initialPaidToDate.plusMonths(1), updatedDate);
+        Assertions.assertEquals(initialPaidToDate.plusMonths(3), updatedDate);
         ScenarioView deleteTransaction = $(ScenarioView.class).first();
         deleteTransaction.reverseAddRiderTransactionButton().click();
         VaadinConfirmDialogView ok = $(VaadinConfirmDialogView.class).first();
