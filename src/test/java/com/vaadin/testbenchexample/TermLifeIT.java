@@ -198,7 +198,7 @@ public class TermLifeIT extends BaseLoginTest {
 		application.paymentMethod().selectByText("Electronic Fund Transfer");
 		application.draftDay().sendKeys("1");
 		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
-		application.cashAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "87.5");
+		application.cashAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "94.62");
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
 		application.applicationReceivedDate().setDate( LocalDate.now() );
 		application.applicationSignedDate().setDate( LocalDate.now() );

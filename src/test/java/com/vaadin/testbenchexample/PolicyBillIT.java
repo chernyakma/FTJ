@@ -19,9 +19,9 @@ public class PolicyBillIT extends BaseLoginTest{
         VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
         getSelectButton.getSelectItem().selectItemByIndex( 6 );
         SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-        getPolicy.searchByPolicy().sendKeys( "POL-1106" );
+        getPolicy.searchByPolicy().sendKeys( "POL-1001" );
         getPolicy.searchButton().click();
-        getPolicy.family().getCell( "POL-1106" ).click();
+        getPolicy.family().getCell( "POL-1001" ).click();
         NaviMenuView addSuspense = $( NaviMenuView.class ).first();
         addSuspense.suspense2().click();
         ScenarioView addSuspenseButton = $( ScenarioView.class ).first();
@@ -84,9 +84,9 @@ public class PolicyBillIT extends BaseLoginTest{
         getSelectButton.getSelectItem().selectByText("Search Policy");
         waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("POL-1003");
+        getPolicy.searchByPolicy().sendKeys("POL-1107");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("POL-1003").click();
+        getPolicy.family().getCell("POL-1107").click();
         NaviMenuView transaction = $(NaviMenuView.class).first();
         transaction.policyTransactions().click();
         ScenarioView premiumTransaction = $(ScenarioView.class).first();
