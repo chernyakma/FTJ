@@ -74,16 +74,18 @@ public class TermLifeIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
 		getSelectButton.getSelectItem().selectItemByIndex(3);
 		SearchComponentView getFamily = $(SearchComponentView.class).first();
-		getFamily.searchBySSN().sendKeys("511-20-7948");
+		getFamily.searchBySSN().sendKeys("293-75-5647");
 		getFamily.searchButton().click();
 		getFamily.family().getCell("Palmer").click();
 		NaviMenuView newBusiness = $(NaviMenuView.class).first();
 		newBusiness.getNewBusiness().click();
 		NewIllustrationView addNewBusiness = $(NewIllustrationView.class).first();
 //		addNewBusiness.getProductType().selectByText( "Immediate Annuity" );
-		addNewBusiness.getFaceAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "100000");
+		addNewBusiness.getFaceAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "150000");
 //		addNewBusiness.effectiveDate().setDate(LocalDate.now());
 		addNewBusiness.effectiveDate().setDate(LocalDate.now());
+		addNewBusiness.getProduct().selectByText("NYL Decreasing Term");
+		addNewBusiness.coverageLevel().selectByText("High Option");
 		addNewBusiness.inputFace().selectByText("Input Face");
 		addNewBusiness.getOkButton().click();
 
@@ -93,18 +95,12 @@ public class TermLifeIT extends BaseLoginTest {
 		apply.getApplyButtonReport().click();
 		VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
 		confirm.getSaveButton().click();
-/*
-		ApplicationView application = $( ApplicationView.class ).first();
-		application.getAgentNumber().sendKeys("MC001");
-		Thread.sleep( 3_000 );
-		application.getAgentNumber().sendKeys(Keys.ARROW_DOWN);
-		application.getAgentNumber().sendKeys(Keys.ENTER);
-*/
+
 		ApplicationView application = $( ApplicationView.class ).first();
 		application.applicationReceived().selectByText( "Yes" );
 		application.cashWithApplication().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
-		application.cashAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "3163.20");
+	//	application.cashAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "3163.20");
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
 		application.applicationReceivedDate().setDate( LocalDate.now() );
 		application.applicationSignedDate().setDate( LocalDate.now() );
@@ -117,38 +113,7 @@ public class TermLifeIT extends BaseLoginTest {
 
 		application.cashWithApplicationReceivedDate().setDate( LocalDate.now() );
 
-/*
-		NaviMenuView getDocument = $( NaviMenuView.class ).first();
-		getDocument.getDocument().click();
-		ApplicationView report = $( ApplicationView.class ).first();
-		report.downloadButton().click();
-		Thread.sleep( 3_000 );
-		application.compareAndDeleteDownloadedPdfFPIUL();
 
-		application.threeDotsButton().click();
-		WebElement noteList = findElement( By.xpath( "//*[@class='vaadin-menu-item']" ) );
-		noteList.click();
-		Thread.sleep( 3_000 );
-		EntryDialogContent addNote = $( EntryDialogContent.class ).first();
-		addNote.addNoteButton().click();
-		addNote.noteText().setValue( "document 1" );
-		addNote.expiresDate().setDate( LocalDate.of( 2024, 12, 12 ) );
-		addNote.attachButton().click();
-		addNote.attachmentType().selectByText( "Final Application" );
-	//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf") );
-		String filePathApp = System.getenv("UPLOAD_FILE_PATH_App");
-		File fileToUploadApp = new File(filePathApp);
-		addNote.uploadFileButton().upload(fileToUploadApp);
-		Thread.sleep( 5_000 );
-		addNote.attachButton().click();
-		addNote.attachmentType().selectByText( "Final Illustration" );
-	//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Illustration .pdf" ) );
-		String filePathIll = System.getenv("UPLOAD_FILE_PATH_ILL");
-		File fileToUploadIll = new File(filePathIll);
-		addNote.uploadFileButton().upload(fileToUploadIll);
-		addNote.okButton().click();
-		addNote.closeButton().click();
-*/
 		NaviMenuView iGO = $( NaviMenuView.class ).first();
 		iGO.checkIGO().click();
 		Thread.sleep( 3_000 );
@@ -171,7 +136,7 @@ public class TermLifeIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
 		getSelectButton.getSelectItem().selectItemByIndex(3);
 		SearchComponentView getFamily = $(SearchComponentView.class).first();
-		getFamily.searchBySSN().sendKeys("511-20-7948");
+		getFamily.searchBySSN().sendKeys("293-75-5647");
 		getFamily.searchButton().click();
 		getFamily.family().getCell("Palmer").click();
 		NaviMenuView newBusiness = $(NaviMenuView.class).first();
@@ -198,7 +163,7 @@ public class TermLifeIT extends BaseLoginTest {
 		application.paymentMethod().selectByText("Electronic Fund Transfer");
 		application.draftDay().sendKeys("1");
 		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
-		application.cashAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "94.62");
+	//	application.cashAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "94.62");
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
 		application.applicationReceivedDate().setDate( LocalDate.now() );
 		application.applicationSignedDate().setDate( LocalDate.now() );

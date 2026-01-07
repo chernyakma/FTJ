@@ -51,6 +51,9 @@ public class NewIllustrationView extends TestBenchElement {
    protected SelectElement inputFace(){
 		return $(TestBenchElement.class).id("NewIllustrationSection").$(SelectElement.class).id("NewBusinessPremiumFaceInputRule");
    }
+	protected SelectElement coverageLevel(){
+		return $(TestBenchElement.class).id("NewIllustrationSection").$(SelectElement.class).id("CoverageBenefitLevel");
+	}
 
 
 

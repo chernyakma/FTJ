@@ -19,9 +19,9 @@ public class PolicyBillIT extends BaseLoginTest{
         VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
         getSelectButton.getSelectItem().selectItemByIndex( 6 );
         SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-        getPolicy.searchByPolicy().sendKeys( "POL-1001" );
+        getPolicy.searchByPolicy().sendKeys( "POL-1008" );
         getPolicy.searchButton().click();
-        getPolicy.family().getCell( "POL-1001" ).click();
+        getPolicy.family().getCell( "POL-1008" ).click();
         NaviMenuView addSuspense = $( NaviMenuView.class ).first();
         addSuspense.suspense2().click();
         ScenarioView addSuspenseButton = $( ScenarioView.class ).first();
@@ -84,9 +84,9 @@ public class PolicyBillIT extends BaseLoginTest{
         getSelectButton.getSelectItem().selectByText("Search Policy");
         waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("POL-1107");
+        getPolicy.searchByPolicy().sendKeys("POL-1012");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("POL-1107").click();
+        getPolicy.family().getCell("POL-1012").click();
         NaviMenuView transaction = $(NaviMenuView.class).first();
         transaction.policyTransactions().click();
         ScenarioView premiumTransaction = $(ScenarioView.class).first();
@@ -96,7 +96,10 @@ public class PolicyBillIT extends BaseLoginTest{
         TransactionPopUpPageView selectTransaction = $(TransactionPopUpPageView.class).first();
         selectTransaction.transactionType().selectByText("Premium");
         waitUntil(driver -> $(EntryDialogContent.class).exists(), 160);
+        TransactionPopUpPageView effDate=$(TransactionPopUpPageView.class).first();
+        effDate.effectiveDate().setDate(LocalDate.of(2026,1,7));
         EntryDialogContent premium = $(EntryDialogContent.class).first();
+
 //        waitUntil(driver -> premium.isDisplayed(), 60);
  //       premium.premiumAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "262.50");
 //        premium.billingMonths().sendKeys(Keys.chord(Keys.CONTROL, "a"), "3");
@@ -134,9 +137,9 @@ public class PolicyBillIT extends BaseLoginTest{
         getSelectButton.getSelectItem().selectByText("Search Policy");
 
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("POL-1002");
+        getPolicy.searchByPolicy().sendKeys("POL-1009");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("POL-1002").click();
+        getPolicy.family().getCell("POL-1009").click();
 
         NaviMenuView transaction = $(NaviMenuView.class).first();
         transaction.policyTransactions().click();
