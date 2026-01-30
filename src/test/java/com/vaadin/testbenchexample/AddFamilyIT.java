@@ -184,12 +184,12 @@ public class AddFamilyIT extends BaseLoginTest {
 		setAddress.clearAddress();
 		setAddress.address( "111 Bridge Street", "234 First Street", "Norfolk", "23503" );
 		setAddress.getState().selectByText( "Virginia" );
-	//	setAddress.getDefaultBilling().click();
-		setAddress.getDefaultResidence().click();
+		setAddress.getDefaultBilling().click();
+	//	setAddress.getDefaultResidence().click();
 		Assertions.assertEquals( "Virginia", setAddress.getState().getSelectedText() );
 		Assertions.assertEquals( "111 Bridge Street", setAddress.getLine1().getValue() );
 		Assertions.assertEquals( "234 First Street", setAddress.getLine2().getValue() );
-		Assertions.assertTrue( setAddress.getDefaultResidence().isChecked() );
+		Assertions.assertTrue( setAddress.getDefaultBilling().isChecked() );
 		Assertions.assertEquals( "23503",setAddress.getZip().getValue() );
 		setAddress.getCancelButton().click();
 //		setAddress.getEditOkButton().click();

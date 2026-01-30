@@ -82,8 +82,8 @@ public class TermLifeIT extends BaseLoginTest {
 		NewIllustrationView addNewBusiness = $(NewIllustrationView.class).first();
 //		addNewBusiness.getProductType().selectByText( "Immediate Annuity" );
 		addNewBusiness.getFaceAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "150000");
-//		addNewBusiness.effectiveDate().setDate(LocalDate.now());
-		addNewBusiness.effectiveDate().setDate(LocalDate.now());
+
+		addNewBusiness.effectiveDate().setDate( LocalDate.of( 2026, 01, 01 ) );
 		addNewBusiness.getProduct().selectByText("NYL Decreasing Term");
 		addNewBusiness.coverageLevel().selectByText("High Option");
 		addNewBusiness.inputFace().selectByText("Input Face");
@@ -144,7 +144,7 @@ public class TermLifeIT extends BaseLoginTest {
 		NewIllustrationView addNewBusiness = $(NewIllustrationView.class).first();
 //		addNewBusiness.getProductType().selectByText( "Immediate Annuity" );
 		addNewBusiness.getFaceAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "150000");
-		addNewBusiness.effectiveDate().setDate(LocalDate.now());
+		addNewBusiness.effectiveDate().setDate( LocalDate.of( 2026, 01, 01 ) );
 //		addNewBusiness.effectiveDate().setDate(LocalDate.of( 2025, 8, 01 ) );
 		addNewBusiness.inputFace().selectByText("Input Face");
 		addNewBusiness.getProduct().selectByText("NYL 10 Year Term");

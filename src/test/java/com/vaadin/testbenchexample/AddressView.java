@@ -1,6 +1,7 @@
 package com.vaadin.testbenchexample;
 import java.util.Collections;
 
+import com.vaadin.flow.component.checkbox.testbench.CheckboxGroupElement;
 import org.openqa.selenium.Keys;
 
 import com.vaadin.flow.component.button.testbench.ButtonElement;
@@ -46,7 +47,7 @@ public class AddressView extends TestBenchElement
 		return $(TestBenchElement.class).id( "S2" ).$(CheckboxElement.class).first() ;
 	}
 	protected CheckboxElement getDefaultMailing ( ) {
-		return $(TestBenchElement.class).id( "S2" ).$(CheckboxElement.class).get( 1 );
+		return $(TestBenchElement.class).id( "S2" ).$(CheckboxGroupElement.class).id("DefaultMailing").$(CheckboxElement.class).first();
 	}
 	protected CheckboxElement getDefaultBilling ( ) {
 		return $(TestBenchElement.class).id( "S2" ).$(CheckboxElement.class).get(2);

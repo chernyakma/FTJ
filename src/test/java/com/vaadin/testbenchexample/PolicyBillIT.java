@@ -50,7 +50,7 @@ public class PolicyBillIT extends BaseLoginTest{
         transferSuspence.toAccount().selectByText( "General Premium" );
         transferSuspence.transferAmount().sendKeys( "500" );
         Assertions.assertEquals( "500",transferSuspence.transferAmount().getValue() );
-        transferSuspence.transferEffectveDate().setDate( LocalDate.now() );
+ //       transferSuspence.transferEffectveDate().setDate( LocalDate.now() );
         transferSuspence.note().sendKeys( "transfer to David Palmer" );
         transferSuspence.okButton().click();
         ScenarioView suspenceAmount=$(ScenarioView.class).first();
