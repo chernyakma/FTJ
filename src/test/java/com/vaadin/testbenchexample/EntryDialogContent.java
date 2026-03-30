@@ -2,6 +2,7 @@ package com.vaadin.testbenchexample;
 import com.vaadin.flow.component.button.testbench.ButtonElement;
 import com.vaadin.flow.component.datepicker.testbench.DatePickerElement;
 import com.vaadin.flow.component.grid.testbench.GridElement;
+import com.vaadin.flow.component.radiobutton.testbench.RadioButtonElement;
 import com.vaadin.flow.component.radiobutton.testbench.RadioButtonGroupElement;
 import com.vaadin.flow.component.select.testbench.SelectElement;
 import com.vaadin.flow.component.textfield.testbench.TextAreaElement;
@@ -99,7 +100,7 @@ public class EntryDialogContent extends TestBenchElement {
 	protected TextFieldElement suspenseAmount(){
 		return $(TestBenchElement.class).id( "mainContent" ).$(TextFieldElement.class).first();
 	}
-	protected DatePickerElement effectveDate() {
+	protected DatePickerElement effectiveDate2() {
 		return $(TestBenchElement.class).id( "mainContent" ).$(DatePickerElement.class).first();
 	}
 	protected SelectElement fromAccount () {
@@ -157,6 +158,12 @@ public class EntryDialogContent extends TestBenchElement {
 	}
 	protected DatePickerElement dob (){
 		return $(TestBenchElement.class).id("FldSec_1" ).$(DatePickerElement.class).id("DateOfBirth");
+	}
+	protected RadioButtonElement addAddress(){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(RadioButtonGroupElement.class).first().$(RadioButtonElement.class).last();
+	}
+	protected SelectElement selectAddress(){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(SelectElement.class).id("AddressGUID");
 	}
 	protected TextFieldElement ssn (){
 		return $(TestBenchElement.class).id("FldSec_1" ).$(TextFieldElement.class).id("SsnOrTaxID");

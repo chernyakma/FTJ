@@ -14,7 +14,10 @@ public class TransactionPopUpPageView extends TestBenchElement {
 
         return $( SelectElement.class ).id( "typeSelect" );
     }
+    protected SelectElement accountSubType(){
 
+        return $(TestBenchElement.class).id("PremiumSection").$( SelectElement.class ).id("AccountSubTypeName" );
+    }
     protected DatePickerElement effectiveDate(){
 
         return $(DatePickerElement.class).first();

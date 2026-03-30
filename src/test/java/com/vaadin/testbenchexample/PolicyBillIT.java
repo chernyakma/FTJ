@@ -28,10 +28,11 @@ public class PolicyBillIT extends BaseLoginTest{
         addSuspenseButton.addSuspenceButton().click();
         EntryDialogContent suspenseSource = $( EntryDialogContent.class ).first();
         suspenseSource.suspenseAmount().sendKeys( "500" );
+        suspenseSource.effectiveDate2().setDate(LocalDate.now());
         Assertions.assertEquals( "500",suspenseSource.suspenseAmount().getValue() );
         suspenseSource.suspenseSource().selectByText( "Check" );
         Assertions.assertEquals( "Check",suspenseSource.suspenseSource().getSelectedText() );
-        suspenseSource.depositAccount().selectByText( "SPECIFIC SUSPENSE" );
+        suspenseSource.depositAccount().selectByText( "Direct Bill" );
         suspenseSource.processButton().click();
 
         ScenarioView checkSuspence=$(ScenarioView.class).first();
@@ -39,7 +40,7 @@ public class PolicyBillIT extends BaseLoginTest{
 
         checkSuspence.transferSuspenceButton().click();
         EntryDialogContent transferSuspence = $(EntryDialogContent.class).first();
-        transferSuspence.fromAccount().selectByText( "SPECIFIC SUSPENSE" );
+        transferSuspence.fromAccount().selectByText( "Direct Bill" );
         //	EntryDialogContent transferSuspenceTo = $(EntryDialogContent.class).first();
         //	transferSuspence.note().sendKeys( "123" );
         //	transferSuspence.toAccount().focus();
@@ -47,10 +48,10 @@ public class PolicyBillIT extends BaseLoginTest{
         transferSuspence.searchFamily().sendKeys( "Palmer" );
         transferSuspence.search().doubleClick();
         transferSuspence.family().getCell( "Palmer" ).click();
-        transferSuspence.toAccount().selectByText( "General Premium" );
+        transferSuspence.toAccount().selectByText( "Direct Bill" );
         transferSuspence.transferAmount().sendKeys( "500" );
         Assertions.assertEquals( "500",transferSuspence.transferAmount().getValue() );
- //       transferSuspence.transferEffectveDate().setDate( LocalDate.now() );
+        transferSuspence.transferEffectveDate().setDate( LocalDate.now() );
         transferSuspence.note().sendKeys( "transfer to David Palmer" );
         transferSuspence.okButton().click();
         ScenarioView suspenceAmount=$(ScenarioView.class).first();
@@ -60,7 +61,7 @@ public class PolicyBillIT extends BaseLoginTest{
         ScenarioView deleteTransaction = $(ScenarioView.class).first();
         deleteTransaction.reverseSecondTransactionButton().click();
         VaadinConfirmDialogView ok = $(VaadinConfirmDialogView.class).first();
-        ok.getSaveButton().click();
+        ok.getDeleteButton().click();
         ScenarioView deleteFirstTransaction = $(ScenarioView.class).first();
         waitUntil(driver -> !deleteFirstTransaction.progressBar().isDisplayed(), 80);
         //		ScenarioView deleteLoanTransaction = $(ScenarioView.class).first();
@@ -97,7 +98,9 @@ public class PolicyBillIT extends BaseLoginTest{
         selectTransaction.transactionType().selectByText("Premium");
         waitUntil(driver -> $(EntryDialogContent.class).exists(), 160);
         TransactionPopUpPageView effDate=$(TransactionPopUpPageView.class).first();
-        effDate.effectiveDate().setDate(LocalDate.of(2026,1,7));
+  //      effDate.effectiveDate().setDate(LocalDate.of(2026,1,7));
+        effDate.effectiveDate().setDate(LocalDate.now());
+        effDate.accountSubType().selectByText("Direct Bill");
         EntryDialogContent premium = $(EntryDialogContent.class).first();
 
 //        waitUntil(driver -> premium.isDisplayed(), 60);
@@ -119,7 +122,7 @@ public class PolicyBillIT extends BaseLoginTest{
         ScenarioView deleteTransaction = $(ScenarioView.class).first();
         deleteTransaction.reverseAddRiderTransactionButton().click();
         VaadinConfirmDialogView ok = $(VaadinConfirmDialogView.class).first();
-        ok.getSaveButton().click();
+        ok.getDeleteButton().click();
         ScenarioView deleteLoanTransaction = $(ScenarioView.class).first();
         waitUntil(driver -> !deleteTransaction.progressBar().isDisplayed(), 80);
 

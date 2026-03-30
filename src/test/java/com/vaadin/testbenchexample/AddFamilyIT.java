@@ -88,8 +88,8 @@ public class AddFamilyIT extends BaseLoginTest {
 		Assertions.assertEquals( "1/5/1965", family.getDateOfBirth().getInputValue() );
 		family.getSaveButton().click();
 		family.FamilyButton().click();
-		VaadinConfirmDialogView leave=$(VaadinConfirmDialogView.class).first();
-		leave.getDeleteButton().click();
+	//	VaadinConfirmDialogView leave=$(VaadinConfirmDialogView.class).first();
+	//	leave.getDeleteButton().click();
 	//	NaviMenuView getFamilybutton = $( NaviMenuView.class ).first();
 	//	getFamilybutton.getFamily().click();
 		ScenarioView deleteMember= $(ScenarioView.class).first();
@@ -322,6 +322,8 @@ public class AddFamilyIT extends BaseLoginTest {
 		addNewRole.dob().setDate(LocalDate.of(1980, 8, 25));
 		addNewRole.gender().selectByText("Male");
 		addNewRole.relationship().selectByText("Other");
+		addNewRole.addAddress().click();
+		addNewRole.selectAddress().selectByText("Add New");
 		Assertions.assertEquals("Potter", addNewRole.lastName().getValue());
 //		Assertions.assertEquals("8/25/1980", addNewRole.dob().getInputValue());
 		Assertions.assertEquals("253-44-6453", addNewRole.ssn().getValue());
