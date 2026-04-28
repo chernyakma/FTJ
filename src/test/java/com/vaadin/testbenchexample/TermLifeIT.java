@@ -70,39 +70,42 @@ public class TermLifeIT extends BaseLoginTest {
 		}
 	*/
 	@Test
-	public void addNewBusiness() throws Exception {
+	public void addNewIdentityTheftBusiness() throws Exception {
 		VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
 		getSelectButton.getSelectItem().selectItemByIndex(3);
 		SearchComponentView getFamily = $(SearchComponentView.class).first();
-		getFamily.searchBySSN().sendKeys("293-75-5647");
+		getFamily.searchBySSN().sendKeys("511-20-7950");
 		getFamily.searchButton().click();
 		getFamily.family().getCell("Palmer").click();
 		NaviMenuView newBusiness = $(NaviMenuView.class).first();
 		newBusiness.getNewBusiness().click();
 		NewIllustrationView addNewBusiness = $(NewIllustrationView.class).first();
-//		addNewBusiness.getProductType().selectByText( "Immediate Annuity" );
-		addNewBusiness.getFaceAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "150000");
-		LocalDate today = LocalDate.now();
-		LocalDate effectiveDate;
+		addNewBusiness.getProductType().selectByText( "Identity Theft" );
 
-		if (today.getDayOfMonth() >= 29) {
-			effectiveDate = today.plusMonths(1).withDayOfMonth(1);
-		} else {
-			effectiveDate = today;
-		}
+	//	LocalDate today = LocalDate.now();
+	//	LocalDate effectiveDate;
 
-		addNewBusiness.effectiveDate().setDate(effectiveDate);
+	//	if (today.getDayOfMonth() >= 29) {
+	//		effectiveDate = today.plusMonths(1).withDayOfMonth(1);
+	//	} else {
+	//		effectiveDate = today;
+	//	}
+
+	//	addNewBusiness.effectiveDate().setDate(effectiveDate);
 
 //		addNewBusiness.effectiveDate().setDate( LocalDate.of( 2026, 01, 01 ) );
-		addNewBusiness.getProduct().selectByText("NYL Decreasing Term");
-		addNewBusiness.coverageLevel().selectByText("High Option");
-		addNewBusiness.inputFace().selectByText("Input Face");
+//		addNewBusiness.getProduct().selectByText("Identity Theft");
+		addNewBusiness.coverageLevel2().selectItemByIndex(1);
+
+//		addNewBusiness.inputFace().selectByText("Input Face");
 		addNewBusiness.getOkButton().click();
+		IllustrationView payment =$(IllustrationView.class).first();
+		payment.paymentMode2().selectItemByIndex(0);
 
 		NaviMenuView getReport = $(NaviMenuView.class).first();
 		getReport.getReport().click();
 		IllustrationView apply = $(IllustrationView.class).first();
-		apply.getApplyButtonReport().click();
+		apply.getApplyButton().click();
 		VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
 		confirm.getSaveButton().click();
 
@@ -142,17 +145,17 @@ public class TermLifeIT extends BaseLoginTest {
 
 
 	@Test
-	public void addNewBusinessEFT() throws Exception {
+	public void addNewEFTNYL10YearBusiness() throws Exception {
 		VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
 		getSelectButton.getSelectItem().selectItemByIndex(3);
 		SearchComponentView getFamily = $(SearchComponentView.class).first();
-		getFamily.searchBySSN().sendKeys("293-75-5647");
+		getFamily.searchBySSN().sendKeys("511-20-7950");
 		getFamily.searchButton().click();
 		getFamily.family().getCell("Palmer").click();
 		NaviMenuView newBusiness = $(NaviMenuView.class).first();
 		newBusiness.getNewBusiness().click();
 		NewIllustrationView addNewBusiness = $(NewIllustrationView.class).first();
-//		addNewBusiness.getProductType().selectByText( "Immediate Annuity" );
+		addNewBusiness.getProductType().selectByText( "Term Life" );
 		addNewBusiness.getFaceAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "150000");
 		LocalDate today = LocalDate.now();
 		LocalDate effectiveDate;
@@ -264,6 +267,130 @@ public class TermLifeIT extends BaseLoginTest {
 		Assertions.assertEquals( "Active",getPolicyStatus.policyStatus().getText() );
 
 	}
+	@Test
+	public void addNYLRenewableEFT() throws Exception {
+		VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
+		getSelectButton.getSelectItem().selectItemByIndex(3);
+		SearchComponentView getFamily = $(SearchComponentView.class).first();
+		getFamily.searchBySSN().sendKeys("283-43-6642");
+		getFamily.searchButton().click();
+		getFamily.family().getCell("Palmer").click();
+		NaviMenuView newBusiness = $(NaviMenuView.class).first();
+		newBusiness.getNewBusiness().click();
+		NewIllustrationView addNewBusiness = $(NewIllustrationView.class).first();
+		addNewBusiness.getProductType().selectByText( "Term Life" );
+		addNewBusiness.getFaceAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "100000");
+		LocalDate today = LocalDate.now();
+		LocalDate effectiveDate;
+
+		if (today.getDayOfMonth() >= 29) {
+			effectiveDate = today.plusMonths(1).withDayOfMonth(1);
+		} else {
+			effectiveDate = today;
+		}
+
+		addNewBusiness.effectiveDate().setDate(effectiveDate);
+//		addNewBusiness.effectiveDate().setDate( LocalDate.of( 2026, 01, 01 ) );
+//		addNewBusiness.effectiveDate().setDate(LocalDate.of( 2025, 8, 01 ) );
+		addNewBusiness.inputFace().selectByText("Input Face");
+		addNewBusiness.getProduct().selectByText("NYL Renewable Term");
+		addNewBusiness.getOkButton().click();
+		IllustrationView paymentMode = $(IllustrationView.class).first();
+//		paymentMode.paymentMode().selectByText("Monthly");
+		NaviMenuView getReport = $(NaviMenuView.class).first();
+		getReport.getReport().click();
+		IllustrationView apply = $(IllustrationView.class).first();
+		apply.getApplyButtonReport().click();
+		VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
+		confirm.getSaveButton().click();
+		ApplicationView application = $( ApplicationView.class ).first();
+		application.applicationReceived().selectByText( "Yes" );
+		application.cashWithApplication().selectByText( "Yes" );
+		application.paymentMethod().selectByText("Electronic Fund Transfer");
+		application.draftDay().sendKeys("1");
+		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
+		//	application.cashAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "94.62");
+		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
+		application.applicationReceivedDate().setDate( LocalDate.now() );
+		application.applicationSignedDate().setDate( LocalDate.now() );
+
+		application.applicationStatus().selectByText("Active");
+		application.policyIssuedDate().setDate(LocalDate.now());
+//		Assertions.assertEquals( "MC001", application.getAgentNumber().getSelectedText() );
+		application.applicationFundsReceived().selectByText( "Yes" );
+		Assertions.assertEquals( "Yes", application.applicationFundsReceived().getSelectedText() );
+
+		application.cashWithApplicationReceivedDate().setDate( LocalDate.now() );
+
+
+/*
+		ApplicationView application = $( ApplicationView.class ).first();
+		application.getAgentNumber().sendKeys("MC001");
+		Thread.sleep( 3_000 );
+	//	application.getAgentNumber().sendKeys(Keys.ARROW_DOWN);
+	//	application.getAgentNumber().sendKeys(Keys.ENTER);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown'}));", application.getAgentNumber());
+		application.getAgentNumber().sendKeys( Keys.ENTER );
+
+		application.applicationReceived().selectByText( "Yes" );
+		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
+		application.applicationReceivedDate().setDate( LocalDate.now() );
+		application.applicationSignedDate().setDate( LocalDate.now() );
+		Assertions.assertEquals( "MC001 - Mariia Cherniak", application.getAgentNumber().getSelectedText() );
+		application.applicationFundsReceived().selectByText( "Yes" );
+		Assertions.assertEquals( "Yes", application.applicationFundsReceived().getSelectedText() );
+		application.paymentMethod().selectByText("Electronic Fund Transfer");
+//		application.cashWithApplication().selectByText( "Yes" );
+//		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
+//		application.cashWithApplicationReceivedDate().setDate( LocalDate.now() );
+
+		NaviMenuView getDocument = $( NaviMenuView.class ).first();
+		getDocument.getDocument().click();
+		ApplicationView report = $( ApplicationView.class ).first();
+		report.downloadButton().click();
+		Thread.sleep( 3_000 );
+		application.compareAndDeleteDownloadedPdfFPIUL();
+
+		application.threeDotsButton().click();
+		WebElement noteList = findElement( By.xpath( "//*[@class='vaadin-menu-item']" ) );
+		noteList.click();
+		Thread.sleep( 3_000 );
+		EntryDialogContent addNote = $( EntryDialogContent.class ).first();
+		addNote.addNoteButton().click();
+		addNote.noteText().setValue( "document 1" );
+		addNote.expiresDate().setDate( LocalDate.of( 2024, 12, 12 ) );
+		addNote.attachButton().click();
+		addNote.attachmentType().selectByText( "Final Application" );
+		//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf") );
+		String filePathApp = System.getenv("UPLOAD_FILE_PATH_App");
+		File fileToUploadApp = new File(filePathApp).getAbsoluteFile();
+		addNote.uploadFileButton().upload(fileToUploadApp);
+		Thread.sleep( 5_000 );
+		addNote.attachButton().click();
+		addNote.attachmentType().selectByText( "Final Illustration" );
+		//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Illustration .pdf" ) );
+		String filePathIll = System.getenv("UPLOAD_FILE_PATH_ILL");
+		File fileToUploadIll = new File(filePathIll).getAbsoluteFile();
+		addNote.uploadFileButton().upload(fileToUploadIll);
+		addNote.okButton().click();
+		addNote.closeButton().click();
+*/
+		NaviMenuView iGO = $( NaviMenuView.class ).first();
+		iGO.checkIGO().click();
+		Thread.sleep( 3_000 );
+		ApplicationView issue = $( ApplicationView.class ).first();
+
+		application.issueButton().click();
+		VaadinConfirmDialogView confirmButton = $( VaadinConfirmDialogView.class ).first();
+		confirmButton.getSaveButton().click();
+		//	VaadinConfirmDialogView ok = $(VaadinConfirmDialogView.class).first();
+		//	ok.getSaveButton().click();
+		ScenarioView getPolicyStatus = $(ScenarioView.class).first();
+		Assertions.assertEquals( "Active",getPolicyStatus.policyStatus().getText() );
+
+	}
+
 
 
 }

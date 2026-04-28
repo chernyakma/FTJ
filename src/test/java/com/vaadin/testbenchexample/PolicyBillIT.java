@@ -19,9 +19,9 @@ public class PolicyBillIT extends BaseLoginTest{
         VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
         getSelectButton.getSelectItem().selectItemByIndex( 6 );
         SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-        getPolicy.searchByPolicy().sendKeys( "POL-1008" );
+        getPolicy.searchByPolicy().sendKeys( "POL-1006" );
         getPolicy.searchButton().click();
-        getPolicy.family().getCell( "POL-1008" ).click();
+        getPolicy.family().getCell( "POL-1006" ).click();
         NaviMenuView addSuspense = $( NaviMenuView.class ).first();
         addSuspense.suspense2().click();
         ScenarioView addSuspenseButton = $( ScenarioView.class ).first();
@@ -32,7 +32,7 @@ public class PolicyBillIT extends BaseLoginTest{
         Assertions.assertEquals( "500",suspenseSource.suspenseAmount().getValue() );
         suspenseSource.suspenseSource().selectByText( "Check" );
         Assertions.assertEquals( "Check",suspenseSource.suspenseSource().getSelectedText() );
-        suspenseSource.depositAccount().selectByText( "Direct Bill" );
+        suspenseSource.depositAccount().selectByText( "Batch Suspense" );
         suspenseSource.processButton().click();
 
         ScenarioView checkSuspence=$(ScenarioView.class).first();
@@ -40,7 +40,7 @@ public class PolicyBillIT extends BaseLoginTest{
 
         checkSuspence.transferSuspenceButton().click();
         EntryDialogContent transferSuspence = $(EntryDialogContent.class).first();
-        transferSuspence.fromAccount().selectByText( "Direct Bill" );
+        transferSuspence.fromAccount().selectByText( "Batch Suspense" );
         //	EntryDialogContent transferSuspenceTo = $(EntryDialogContent.class).first();
         //	transferSuspence.note().sendKeys( "123" );
         //	transferSuspence.toAccount().focus();
@@ -48,7 +48,7 @@ public class PolicyBillIT extends BaseLoginTest{
         transferSuspence.searchFamily().sendKeys( "Palmer" );
         transferSuspence.search().doubleClick();
         transferSuspence.family().getCell( "Palmer" ).click();
-        transferSuspence.toAccount().selectByText( "Direct Bill" );
+        transferSuspence.toAccount().selectByText( "Specific Suspense" );
         transferSuspence.transferAmount().sendKeys( "500" );
         Assertions.assertEquals( "500",transferSuspence.transferAmount().getValue() );
         transferSuspence.transferEffectveDate().setDate( LocalDate.now() );
@@ -85,9 +85,9 @@ public class PolicyBillIT extends BaseLoginTest{
         getSelectButton.getSelectItem().selectByText("Search Policy");
         waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("POL-1012");
+        getPolicy.searchByPolicy().sendKeys("POL-1007");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("POL-1012").click();
+        getPolicy.family().getCell("POL-1007").click();
         NaviMenuView transaction = $(NaviMenuView.class).first();
         transaction.policyTransactions().click();
         ScenarioView premiumTransaction = $(ScenarioView.class).first();
@@ -100,7 +100,7 @@ public class PolicyBillIT extends BaseLoginTest{
         TransactionPopUpPageView effDate=$(TransactionPopUpPageView.class).first();
   //      effDate.effectiveDate().setDate(LocalDate.of(2026,1,7));
         effDate.effectiveDate().setDate(LocalDate.now());
-        effDate.accountSubType().selectByText("Direct Bill");
+        effDate.accountSubType().selectByText("Batch Suspense");
         EntryDialogContent premium = $(EntryDialogContent.class).first();
 
 //        waitUntil(driver -> premium.isDisplayed(), 60);
@@ -118,7 +118,7 @@ public class PolicyBillIT extends BaseLoginTest{
         String updatedText = transactionsPage.policyPaidToDate().getText();
         LocalDate updatedDate = LocalDate.parse(updatedText, formatter);
 
-        Assertions.assertEquals(initialPaidToDate.plusMonths(3), updatedDate);
+        Assertions.assertEquals(initialPaidToDate.plusMonths(12), updatedDate);
         ScenarioView deleteTransaction = $(ScenarioView.class).first();
         deleteTransaction.reverseAddRiderTransactionButton().click();
         VaadinConfirmDialogView ok = $(VaadinConfirmDialogView.class).first();
@@ -140,9 +140,9 @@ public class PolicyBillIT extends BaseLoginTest{
         getSelectButton.getSelectItem().selectByText("Search Policy");
 
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("POL-1009");
+        getPolicy.searchByPolicy().sendKeys("POL-1002");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("POL-1009").click();
+        getPolicy.family().getCell("POL-1002").click();
 
         NaviMenuView transaction = $(NaviMenuView.class).first();
         transaction.policyTransactions().click();
@@ -164,7 +164,19 @@ public class PolicyBillIT extends BaseLoginTest{
         String updatedText = payPremium.policyPaidToDate().getText();
         LocalDate updatedDate = LocalDate.parse(updatedText, formatter);
 
-        Assertions.assertEquals(initialPaidToDate.plusMonths(1), updatedDate);
+        Assertions.assertEquals(initialPaidToDate.plusMonths(12), updatedDate);
+        ScenarioView deleteTransaction = $(ScenarioView.class).first();
+        deleteTransaction.reverseForthTransactionButton().click();
+        VaadinConfirmDialogView ok = $(VaadinConfirmDialogView.class).first();
+        ok.getDeleteButton().click();
+        ScenarioView deleteLoanTransaction = $(ScenarioView.class).first();
+        waitUntil(driver -> !deleteTransaction.progressBar().isDisplayed(), 80);
+
+//		ScenarioView deleteLoanTransaction = $(ScenarioView.class).first();
+        deleteLoanTransaction.deleteLoanTransactionButton().click();
+        VaadinConfirmDialogView confirmation = $(VaadinConfirmDialogView.class).first();
+        confirmation.getSaveButton().click();
+
 
     }
 

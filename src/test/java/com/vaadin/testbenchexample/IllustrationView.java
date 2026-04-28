@@ -45,6 +45,10 @@ public class IllustrationView extends TestBenchElement {
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "Policy" ).$( SelectElement.class ).id( "PeriodCertain" );
 	}
 
+	protected SelectElement paymentMode2() {
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "QuoteSection" ).$( SelectElement.class ).id( "PaymentMode" );
+	}
 	protected SelectElement paymentMode() {
 
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "Policy" ).$( SelectElement.class ).id( "PaymentMode" );

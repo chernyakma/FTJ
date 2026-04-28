@@ -54,6 +54,9 @@ public class NewIllustrationView extends TestBenchElement {
 	protected SelectElement coverageLevel(){
 		return $(TestBenchElement.class).id("NewIllustrationSection").$(SelectElement.class).id("CoverageBenefitLevel");
 	}
+	protected SelectElement coverageLevel2(){
+		return $(TestBenchElement.class).id("NewIllustrationSection").$(SelectElement.class).id("CoverageLevel");
+	}
 
 
 

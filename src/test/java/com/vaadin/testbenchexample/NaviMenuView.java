@@ -85,6 +85,14 @@ public class NaviMenuView extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 33 );
 	}
+	protected TestBenchElement transactions() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 12 );
+	}
+	protected TestBenchElement transactions2() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 18 );
+	}
 	protected TestBenchElement policyTransactions() {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 14 );
