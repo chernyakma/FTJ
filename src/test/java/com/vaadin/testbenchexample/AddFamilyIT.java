@@ -160,8 +160,11 @@ public class AddFamilyIT extends BaseLoginTest {
 //	Assertions.assertTrue( setAddress.getDefaultResidence().isChecked() );
 
 	setAddress.getOkButton().click();
-	addAddress.getSaveButton().click();
+//	addAddress.getSaveButton().click();
 	addAddress.getDeleteButton().click();
+	addAddress.getSaveButton().click();
+	VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
+	confirm.getSaveButton().click();
 	addAddress.getSaveButton().click();
 
 
