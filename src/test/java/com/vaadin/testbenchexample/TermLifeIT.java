@@ -70,7 +70,7 @@ public class TermLifeIT extends BaseLoginTest {
 		}
 	*/
 	@Test
-	public void addNewIdentityTheftBusiness() throws Exception {
+	public void addIdentityTheftBusinessDB() throws Exception {
 		VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
 		getSelectButton.getSelectItem().selectItemByIndex(3);
 		SearchComponentView getFamily = $(SearchComponentView.class).first();
@@ -82,22 +82,17 @@ public class TermLifeIT extends BaseLoginTest {
 		NewIllustrationView addNewBusiness = $(NewIllustrationView.class).first();
 		addNewBusiness.getProductType().selectByText( "Identity Theft" );
 
-	//	LocalDate today = LocalDate.now();
-	//	LocalDate effectiveDate;
+		LocalDate today = LocalDate.now();
+		LocalDate effectiveDate;
 
-	//	if (today.getDayOfMonth() >= 29) {
-	//		effectiveDate = today.plusMonths(1).withDayOfMonth(1);
-	//	} else {
-	//		effectiveDate = today;
-	//	}
+		if (today.getDayOfMonth() >= 29) {
+			effectiveDate = today.plusMonths(1).withDayOfMonth(1);
+		} else {
+			effectiveDate = today;
+		}
 
-	//	addNewBusiness.effectiveDate().setDate(effectiveDate);
-
-//		addNewBusiness.effectiveDate().setDate( LocalDate.of( 2026, 01, 01 ) );
-//		addNewBusiness.getProduct().selectByText("Identity Theft");
+		addNewBusiness.effectiveDate().setDate(effectiveDate);
 		addNewBusiness.coverageLevel2().selectItemByIndex(1);
-
-//		addNewBusiness.inputFace().selectByText("Input Face");
 		addNewBusiness.getOkButton().click();
 		IllustrationView payment =$(IllustrationView.class).first();
 		payment.paymentMode2().selectItemByIndex(0);
@@ -145,7 +140,7 @@ public class TermLifeIT extends BaseLoginTest {
 
 
 	@Test
-	public void addNewEFTNYL10YearBusiness() throws Exception {
+	public void addNYL10YearBusinessEFT() throws Exception {
 		VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
 		getSelectButton.getSelectItem().selectItemByIndex(3);
 		SearchComponentView getFamily = $(SearchComponentView.class).first();
@@ -199,60 +194,6 @@ public class TermLifeIT extends BaseLoginTest {
 
 		application.cashWithApplicationReceivedDate().setDate( LocalDate.now() );
 
-
-/*
-		ApplicationView application = $( ApplicationView.class ).first();
-		application.getAgentNumber().sendKeys("MC001");
-		Thread.sleep( 3_000 );
-	//	application.getAgentNumber().sendKeys(Keys.ARROW_DOWN);
-	//	application.getAgentNumber().sendKeys(Keys.ENTER);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown'}));", application.getAgentNumber());
-		application.getAgentNumber().sendKeys( Keys.ENTER );
-
-		application.applicationReceived().selectByText( "Yes" );
-		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
-		application.applicationReceivedDate().setDate( LocalDate.now() );
-		application.applicationSignedDate().setDate( LocalDate.now() );
-		Assertions.assertEquals( "MC001 - Mariia Cherniak", application.getAgentNumber().getSelectedText() );
-		application.applicationFundsReceived().selectByText( "Yes" );
-		Assertions.assertEquals( "Yes", application.applicationFundsReceived().getSelectedText() );
-		application.paymentMethod().selectByText("Electronic Fund Transfer");
-//		application.cashWithApplication().selectByText( "Yes" );
-//		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
-//		application.cashWithApplicationReceivedDate().setDate( LocalDate.now() );
-
-		NaviMenuView getDocument = $( NaviMenuView.class ).first();
-		getDocument.getDocument().click();
-		ApplicationView report = $( ApplicationView.class ).first();
-		report.downloadButton().click();
-		Thread.sleep( 3_000 );
-		application.compareAndDeleteDownloadedPdfFPIUL();
-
-		application.threeDotsButton().click();
-		WebElement noteList = findElement( By.xpath( "//*[@class='vaadin-menu-item']" ) );
-		noteList.click();
-		Thread.sleep( 3_000 );
-		EntryDialogContent addNote = $( EntryDialogContent.class ).first();
-		addNote.addNoteButton().click();
-		addNote.noteText().setValue( "document 1" );
-		addNote.expiresDate().setDate( LocalDate.of( 2024, 12, 12 ) );
-		addNote.attachButton().click();
-		addNote.attachmentType().selectByText( "Final Application" );
-		//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf") );
-		String filePathApp = System.getenv("UPLOAD_FILE_PATH_App");
-		File fileToUploadApp = new File(filePathApp).getAbsoluteFile();
-		addNote.uploadFileButton().upload(fileToUploadApp);
-		Thread.sleep( 5_000 );
-		addNote.attachButton().click();
-		addNote.attachmentType().selectByText( "Final Illustration" );
-		//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Illustration .pdf" ) );
-		String filePathIll = System.getenv("UPLOAD_FILE_PATH_ILL");
-		File fileToUploadIll = new File(filePathIll).getAbsoluteFile();
-		addNote.uploadFileButton().upload(fileToUploadIll);
-		addNote.okButton().click();
-		addNote.closeButton().click();
-*/
 		NaviMenuView iGO = $( NaviMenuView.class ).first();
 		iGO.checkIGO().click();
 		Thread.sleep( 3_000 );
@@ -322,60 +263,6 @@ public class TermLifeIT extends BaseLoginTest {
 
 		application.cashWithApplicationReceivedDate().setDate( LocalDate.now() );
 
-
-/*
-		ApplicationView application = $( ApplicationView.class ).first();
-		application.getAgentNumber().sendKeys("MC001");
-		Thread.sleep( 3_000 );
-	//	application.getAgentNumber().sendKeys(Keys.ARROW_DOWN);
-	//	application.getAgentNumber().sendKeys(Keys.ENTER);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown'}));", application.getAgentNumber());
-		application.getAgentNumber().sendKeys( Keys.ENTER );
-
-		application.applicationReceived().selectByText( "Yes" );
-		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
-		application.applicationReceivedDate().setDate( LocalDate.now() );
-		application.applicationSignedDate().setDate( LocalDate.now() );
-		Assertions.assertEquals( "MC001 - Mariia Cherniak", application.getAgentNumber().getSelectedText() );
-		application.applicationFundsReceived().selectByText( "Yes" );
-		Assertions.assertEquals( "Yes", application.applicationFundsReceived().getSelectedText() );
-		application.paymentMethod().selectByText("Electronic Fund Transfer");
-//		application.cashWithApplication().selectByText( "Yes" );
-//		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
-//		application.cashWithApplicationReceivedDate().setDate( LocalDate.now() );
-
-		NaviMenuView getDocument = $( NaviMenuView.class ).first();
-		getDocument.getDocument().click();
-		ApplicationView report = $( ApplicationView.class ).first();
-		report.downloadButton().click();
-		Thread.sleep( 3_000 );
-		application.compareAndDeleteDownloadedPdfFPIUL();
-
-		application.threeDotsButton().click();
-		WebElement noteList = findElement( By.xpath( "//*[@class='vaadin-menu-item']" ) );
-		noteList.click();
-		Thread.sleep( 3_000 );
-		EntryDialogContent addNote = $( EntryDialogContent.class ).first();
-		addNote.addNoteButton().click();
-		addNote.noteText().setValue( "document 1" );
-		addNote.expiresDate().setDate( LocalDate.of( 2024, 12, 12 ) );
-		addNote.attachButton().click();
-		addNote.attachmentType().selectByText( "Final Application" );
-		//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf") );
-		String filePathApp = System.getenv("UPLOAD_FILE_PATH_App");
-		File fileToUploadApp = new File(filePathApp).getAbsoluteFile();
-		addNote.uploadFileButton().upload(fileToUploadApp);
-		Thread.sleep( 5_000 );
-		addNote.attachButton().click();
-		addNote.attachmentType().selectByText( "Final Illustration" );
-		//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Illustration .pdf" ) );
-		String filePathIll = System.getenv("UPLOAD_FILE_PATH_ILL");
-		File fileToUploadIll = new File(filePathIll).getAbsoluteFile();
-		addNote.uploadFileButton().upload(fileToUploadIll);
-		addNote.okButton().click();
-		addNote.closeButton().click();
-*/
 		NaviMenuView iGO = $( NaviMenuView.class ).first();
 		iGO.checkIGO().click();
 		Thread.sleep( 3_000 );
